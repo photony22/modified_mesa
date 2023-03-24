@@ -5,7 +5,7 @@ Current Modifications: Chart start tick settable from python, generalized chart 
 
 Include Typ in Chart initialization, i.e. 
 
-```python
+```
 orderbook_chart = ChartModule2([{"Type": "bar", "Label": "orderbook_buy", "Color": "Purple"},])
 
 
