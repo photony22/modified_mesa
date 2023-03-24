@@ -271,7 +271,6 @@ class ModularServer(tornado.web.Application):
         self.local_includes = set()
         self.js_code = []
         self.start_tick = model_params["start_tick"]
-        print('start_tick = %s' %self.start_tick)
         for element in self.visualization_elements:
             for include_file in element.package_includes:
                 self.package_includes.add(include_file)

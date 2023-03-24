@@ -1,4 +1,4 @@
-var ChartModule2 = function(series, canvas_width, canvas_height) {
+var ChartModule2 = function(series, canvas_width, canvas_height, chart_type) {
     // Create the tag:
     var canvas_tag = "<canvas width='" + canvas_width + "' height='" + canvas_height + "' ";
     canvas_tag += "style='border:1px dotted'></canvas>";
@@ -78,29 +78,20 @@ var ChartModule2 = function(series, canvas_width, canvas_height) {
 
     this.render = function(data) {
         data2=[6, 11.]
-        //chart.data.labels.push(control.tick);
-        console.log('data in render function')
-        console.log(data)
-        console.log('data2 in render function')
-        console.log(data2)
-        //data = data2
-        var chart = new Chart(context, {
-        type: 'bar',
-        data: {labels: [], datasets: [
-        {label: 'P1', data: []},
-        {label: 'P2', data: []},
-        {label: 'P3', data: []},
-        {label: 'P4', data: []},
-        {label: 'P5', data: []},
-        {label: 'P6', data: []},
-        ]},
+        type='bar'
+        if type=='bar':
+          var data_entry = {labels: [], datasets: [{label: 'P1', data: []},{label: 'P2', data: []},{label: 'P3', data: []},{label: 'P4', data: []},{label: 'P5', data: []},{label: 'P6', data: []},]}
+        else if type=='line':
+          var data_entry = chartData
 
+        var chart = new Chart(context, {
+        type: type,
+        data: data_entry,
         options: chartOptions
         });
+
         for (i = 0; i < data.length; i++) {
-            chart.data.datasets[i].data.push(data[i]);
-            console.log('data[i]')
-            console.log(data[i])
+          chart.data.datasets[i].data.push(data[i]);
         }
         chart.update();
         console.log('chart updated')
