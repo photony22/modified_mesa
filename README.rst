@@ -3,16 +3,9 @@ Current Modifications: Chart start tick settable from python, generalized chart 
 
 ## Usage
 
+Include Typ in Chart initialization, i.e. 
+
 ```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+orderbook_chart = ChartModule2([{"Type": "bar", "Label": "orderbook_buy", "Color": "Purple"},])
 ```
 
